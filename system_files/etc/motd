@@ -1,0 +1,51 @@
+_______________________________________                                                   
+|                                      |             ˆ¿ˆ’                                 
+| Nela's ITG2-like arcade system image |            ˜s¬¬¦/(:˜                               
+|______________________________________|            s÷!üûûk=“)+º                          
+                                                   a——ó§®ŸŸkkÝûü“)*¬ ˜                     
+                                                  ¦«ª>S99S®®Ÿkkkk§ÝU^{*{‚                
+                                                 ˜ƒ“~š99S999kýûkŸkkk§ûšš¯[?†             
+                                                ˜Jº³òÝUUžžžSš¦÷ÒÚÜ¥Ÿ§kÝûûûhÇ¬†i>˜        
+                                               ˆùº–@®UUUUUžàz¯¯¡!¡!ü$ÚÙ®k§§§hàÇš«i<ï…ˆ   
+                                               i÷­¹ŸTTTTUUž@”ª±h®SS|||•†ÙÚ8§§§ûààšäP)íì  
+                                               1›‹ÎžTTTTTUÇ^”zÝžžž999S—•«/•«dÜéàhààÇIï®  
+                                             ’t;:skTTTTTT§¼³~ÞáUUUUUžž9U/•n×)*{*ýÚ8¾>i…  
+                                             ±:‘zSeTTTTTUwº²·~1ážUžUžãâ¶¶ˆ¬cjjj=¿*¿¿[[   
+                                            z^‘;hU6TTTTT§i–º™`³–å8å¼^—¦÷!÷Ì¬†ììììíítïŸ   
+                                           ˜=‚‚uÜ96eTTT®C°°sóò…³~~„IóCaTSž9•««…l====í    
+                                          ’c>+‚‚‚‘ÓÜ8ý6ž‹¹‰o0@ò‚³~DFUUUUUžžž2)/ˆ   ˆ     
+                                          I¤ttt¤v[˜’’¹Òì›°ˆ …V@@‚”“ÞñUUUU99èßâ;/˜        
+                                          ‚ittttttttolª‹;Í   ˜LCC*’³&Dm¶8äI¬|¬•«/<       
+                                              ‚`ttttttt¤ƒ…    ‚±ööYˆ„^„^—¦(33žÝŸ¦)/      
+                                                    rIoo˜       Íòò3:„„YûUU9SSSŸŸ¢+{‚    
+                                                                 ÏòsC;ª^áF99SSSŸkûà­*’   
+                                                                  nò¢ö–ª^Þ¥®®Fp¶â™}***1  
+                                                                   ÷susº”—áâw!|««)í¾y½(  
+                                                                    ·ö½s=;—¦¡íô¾¤ƒJ‡l    
+                                                                      ò½uC¾ttttt‚        
+                                                                       ò¢o¤‚˜            
+                                                                                         
+
+https://github.com/paranoidnela/ITG2-SM5_disk-image
+
+What is this? Why not just use simply love? Because this is meant to imitate a hacked ITG2 cab from the late 2000s, after roxor was sued by konami and
+instructions to add custom songs and the like started appearing online. This was originally created for Blast Galaxy a vintage style arcade in the Netherlands
+so I felt it was more appropriate and fitting to run this in their stepmania converted DDR cab
+
+This image was based off of Debian 12, runs Stepmania 5.0.12, my fork of the In-The-Groove2-SM5 theme which you can find at github.com/paranoidnela. 
+Two versions of the theme exist in this image, one is for arcade use and one is for operator use, 
+the theme can be changed by operators using the scroll-lock operator button and will enable the options and exit buttons.
+
+/ is always mounted as RW, this is not great for data corruption reasons but I want to keep track of stats and I am too lazy to implement it in a better way for now. 
+The songs partition is also mounted as RW during boot but when the system has booted getty will autologin into user itg which has a script in .bash_profile that 
+detects if bash was started on the tty and when it is it will run startx, startx will run the itg.sh script that will disable display power management, blanking 
+and other stuff (this is done because in testing I figured out that even runing Xorg WMless the display will still try to go in some kind of power saving mode after 
+an inactivity timeout has been reached), and finally remount the songs partition in RO to then start stepmania.
+ 
+To add new songs you want to press scroll lock,test the theme to the service edition version of it, 
+exit stepmania and scp or sftp files (or manually for the cli) to /mnt/Songs/Songs, reboot the machine to restart the game and switch back the theme to prevent
+people from accidentally getting out of the game.
+
+You may need to unmute and raise the volume in alsamixer if your stepmania has no sound, this is done by pressing Ctrl+Alt+F2 and running `alsamixer` 
+(the m key will mute or unmute the selected channel, the up and down keys change the level of the selected channel 
+and F6 selects between sound cards if there\'s a need ), then rebooting the system with a `sudo reboot` command

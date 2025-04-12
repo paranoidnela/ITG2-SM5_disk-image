@@ -1,0 +1,12 @@
+# TODO
+- Fix issue where `install_itg.sh` being ran as root will cause `~/` to direct to `/root` instead of `/home/$USER`
+- Enable more protocols and support adding songs via USB
+- Enable USB Profile support (I just hardcoded it in fstab on my current deployment)
+- Ship ready to use disk images
+- Create internal build enviroment for binary releases
+- Add UEFI instructions
+- Automatically unmute and set audio card to 90% volume
+- Find solution to minimise RW data when machine is running to prevent data corruption in arcade enviroments.
+- Overcome more DEBIAN_INSTALL.md dependent steps in later stages of installation to better prevent user errors.
+- Create Ansible deployment files
+- Ship integrated support for lights and common input solutions
