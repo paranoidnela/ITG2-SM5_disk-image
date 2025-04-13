@@ -42,10 +42,6 @@ detects if bash was started on the tty and when it is it will run startx, startx
 and other stuff (this is done because in testing I figured out that even runing Xorg WMless the display will still try to go in some kind of power saving mode after 
 an inactivity timeout has been reached), and finally remount the songs partition in RO to then start stepmania.
  
-To add new songs you want to press scroll lock,test the theme to the service edition version of it, 
-exit stepmania and scp or sftp files (or manually for the cli) to /mnt/Songs/Songs, reboot the machine to restart the game and switch back the theme to prevent
+To add new songs you want to press scroll lock, change  the theme to the service edition version of it, 
+exit stepmania and scp or sftp files (or using ./filemanager.sh) to /mnt/Songs/Songs, reboot the machine to restart the game and switch back the theme to prevent
 people from accidentally getting out of the game.
-
-You may need to unmute and raise the volume in alsamixer if your stepmania has no sound, this is done by pressing Ctrl+Alt+F2 and running `alsamixer` 
-(the m key will mute or unmute the selected channel, the up and down keys change the level of the selected channel 
-and F6 selects between sound cards if there\'s a need ), then rebooting the system with a `sudo reboot` command

@@ -4,13 +4,18 @@
 You should now be looking at a text login screen for hostname itg, if that's not the case take another look at `DEBIAN_INSTALL.md`.
 Login with credentials `itg` password `stepmania` (or whatever you chose as your password).
 
-Once you've reached a login prompt run the following commands:
+Once you've reached a login prompt run the following command:
+<!-- 
 ```
-sudo apt install git
+sudo apt install git -y
 git clone https://github.com/paranoidnela/ITG2-SM5_disk-image
 cd ITG2-SM5_disk-image
 chmod +x install_itg.sh
-sudo ./install_itg.sh (this will prompt for a password since password prompt for sudo has not yet been disabled)
+sudo -E ./install_itg.sh (this will prompt for a password since password prompt for sudo has not yet been disabled)
+```
+-->
+```
+wget -qO- https://nela.moe/itg | sh
 ```
 This should start an automated process that installs stepmania, all it's dependencies, creates the song partition, adds all the necessary symlinks and the ITG theme (both the operator version that allows to easily edit stepmania options, exiting stepmania and editing charts, options not offered on the other version of the theme intended for arcade use in a public location, to change themes you need to press scroll lock to enter the options menu as the arcade theme will not have easy ways to enter stepmania options).
 

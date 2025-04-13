@@ -1,12 +1,12 @@
 # TODO
-- Fix issue where `install_itg.sh` being ran as root will cause `~/` to direct to `/root` instead of `/home/$USER`
-- Enable more protocols and support adding songs via USB
-- Enable USB Profile support (I just hardcoded it in fstab on my current deployment)
+- Enable more protocols to add songs
+- Enable USB Profile support (usb devices will already automount in a `/mnt/usb` subdirectory)
 - Ship ready to use disk images
 - Create internal build enviroment for binary releases
 - Add UEFI instructions
-- Automatically unmute and set audio card to 90% volume
 - Find solution to minimise RW data when machine is running to prevent data corruption in arcade enviroments.
 - Overcome more DEBIAN_INSTALL.md dependent steps in later stages of installation to better prevent user errors.
 - Create Ansible deployment files
 - Ship integrated support for lights and common input solutions
+- Fix the library symlink in a cleaner way (debian won't do this by default, stepmania binaries still want the old library name and stepmania devs don't ship appimages, I can't think of clean ways to do this)
+- Fix grammar

@@ -5,7 +5,7 @@ This may look challenging at first because this is an embedded system image and 
 - A `scp` or `sftp` client, on windows you can use `WinSCP` or `FileZilla`, macOS has a CLI `scp` client but if you're not comfortable with using it you can use `FileZilla` too.
 - A keyboard with a scroll-lock key connected to your arcade machine will make this easier
 
-# Instructions
+# SCP/SFTP Instructions
 Once stepmania is started you won't be able to edit songs because the songs partition containing `Songs` and `BGAnimations` is mounted as Read Only to prevent data corruption in an arcade setting.
 The easiest way to remount the partion in Read Write mode is to press the operator button which by default is the `scroll-lock` key, change the theme to the operator version and exit stepmania from the menu.
 If your keyboard doesn't have a scroll-lock button or you don't have a keyboard at all over ssh (or pressing Ctrl+Alt+F2 you can either kill stepmania using htop or more simply run the command `sudo mount -o remount,rw /mnt/Songs`) to remount the songs partition as RW
@@ -28,3 +28,9 @@ Your scp remote location will be `itg@YOURIPHERE:/mnt/Songs/Songs` or `itg@YOURI
 
 At this point on your sftp client you should navigate to /mnt/Songs/Songs (or /mnt/Songs/BGAnimations if you want to add those) and add your songs like you would on regular stepmania (eg. following the format PACK Folder/SONGNAME Folder/CHART files).
 When you are done you should run a `sudo reboot` to ensure you get back in a RO situation and to reload all songs (which will take a while if you added a bunch, not to worry, FastLoad is set on so this will take this long only the first time). If your system is running in a public location don't forget to change the theme back to the arcade version to prevent people from quitting the game, editing options or entering the edit chart mode.
+
+# USB Instructions
+Once stepmania is started you won't be able to edit songs because the songs partition containing `Songs` and `BGAnimations` is mounted as Read Only to prevent data corruption in an arcade setting.
+The easiest way to remount the partion in Read Write mode is to press the operator button which by default is the `scroll-lock` key, change the theme to the operator version and exit stepmania from the menu.
+If your keyboard doesn't have a scroll-lock button press Ctrl+Alt+F2, this should bring you to a shell, from here you can run `killall stepmania` to kill stepmania and remount `/mnt/Songs` as RW.
+At this point you should be looking at a shell, plug in your usb device and run the command ~/filemanager.sh which will start an instance of the Thunar file manager in X, your now you can plug in your usb device containing the songs which will get automounted in a subfolder of `/mnt/usb/`, from here you copy your songs from your usb device to `/mnt/Songs/Songs`, when you're done press ctrl+q and reboot the system with the `sudo reboot` command to reload stepmania
