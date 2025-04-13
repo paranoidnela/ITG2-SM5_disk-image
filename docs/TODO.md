@@ -7,5 +7,6 @@
 - Overcome more DEBIAN_INSTALL.md dependent steps in later stages of installation to better prevent user errors.
 - Create Ansible deployment files
 - Ship integrated support for lights and common input solutions
+- Install arandr and create a similar solution to `filemanager.sh` for easier video.sh management
 - Fix the library symlink in a cleaner way (debian won't do this by default, stepmania binaries still want the old library name and stepmania devs don't ship appimages, I can't think of clean ways to do this)
 - Fix grammar
