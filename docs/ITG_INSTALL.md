@@ -1,5 +1,5 @@
 # ITG installation
-*these settings were prooftested using: `debian-12.10.0-amd64-netinst.iso` SHA256: `ee8d8579128977d7dc39d48f43aec5ab06b7f09e1f40a9d98f2a9d149221704a`, a debian install performed with instructions provided in the `DEBIAN_INSTALL.md and `StepMania-5.0.12-Linux.tar.gz` SHA256: `be27eab530d7e3dc6b1f744327ddaf3105b57d223e78d6915a141fe7d540db30`* 
+*these settings were prooftested using: `debian-12.10.0-amd64-netinst.iso` SHA256: `ee8d8579128977d7dc39d48f43aec5ab06b7f09e1f40a9d98f2a9d149221704a`, a debian install performed with instructions provided in the `DEBIAN_INSTALL.md` and `StepMania-5.0.12-Linux.tar.gz` SHA256: `be27eab530d7e3dc6b1f744327ddaf3105b57d223e78d6915a141fe7d540db30`* 
 
 You should now be looking at a text login screen for hostname itg, if that's not the case take another look at `DEBIAN_INSTALL.md`.
 Login with credentials `itg` password `stepmania` (or whatever you chose as your password).

@@ -24,6 +24,7 @@ I tried out `TJ's ITG System Image` and while being perfectly workable to me it 
 - In-The-Groove2-SM5 (I will use modified version of my personal fork, all credits to Jose Varela for creating the theme)
 - Any kernel and userspace modules to enable light and input support with your specific setup (you are expected to install and maintain these yourself, if these break or cause your image to break I will not be able to help you)
 - Any stepcharts, noteskins, bganimations or other user provieded content to make the system image useful
+- configureusb.py (borrowed from `TJ's ITG System Image`, if there's a problem with this contact me at `usr@nela.moe`)
 
 # Theory of operations:
 *note: this may change over time when better and less lazy solutions are found to various challanges encountered along the way*
