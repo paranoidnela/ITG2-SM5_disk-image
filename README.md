@@ -4,6 +4,7 @@
 This repository contains tools and utilities I developed or found to create a modern SM5 image that simulates the experience of a hacked ITG2 cab on the modern Stepmania 5 engine.
 
 Installation instructions start at `docs/DEBIAN_INSTALL.md` so give that file (and this file) a good read before opening any issues.
+Experimental disk image released in the releases tab, install via `xz -dc itg.img.xz | sudo dd of=/dev/sdX status=progress` (where sdX is the name of your drive, gathered by `lsblk`, if you're new to linux try spinning up your favourite livecd, downloading the disk image and running the dd command from the directory the disk image is saved in)
 
 # Development motivation
 I tried out `TJ's ITG System Image` and while being perfectly workable to me it looks and feels quite janky, both on a system level and on a theme level, installing `In-The-Groove2-SM5` on it wouldn't have worked anyway because ITGmania does not support the theme in the first place.

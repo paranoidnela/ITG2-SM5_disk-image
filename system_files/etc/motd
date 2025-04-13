@@ -28,20 +28,12 @@ _______________________________________
 
 https://github.com/paranoidnela/ITG2-SM5_disk-image
 
-What is this? Why not just use simply love? Because this is meant to imitate a hacked ITG2 cab from the late 2000s, after roxor was sued by konami and
-instructions to add custom songs and the like started appearing online. This was originally created for Blast Galaxy a vintage style arcade in the Netherlands
-so I felt it was more appropriate and fitting to run this in their stepmania converted DDR cab
+What is this? Why not just use simply love? Because this is meant to imitate a hacked ITG2 cab from the late 2000s, after roxor was sued by konami andinstructions to add custom songs and the like started appearing online. This was originally created for Blast Galaxy a vintage style arcade in the Netherlandsso I felt it was more appropriate and fitting to run this in their stepmania converted DDR cab
 
 This image was based off of Debian 12, runs Stepmania 5.0.12, my fork of the In-The-Groove2-SM5 theme which you can find at github.com/paranoidnela. 
-Two versions of the theme exist in this image, one is for arcade use and one is for operator use, 
-the theme can be changed by operators using the scroll-lock operator button and will enable the options and exit buttons.
+Two versions of the theme exist in this image, one is for arcade use and one is for operator use, the theme can be changed by operators using the scroll-lock operator button and will enable the options and exit buttons.
 
 / is always mounted as RW, this is not great for data corruption reasons but I want to keep track of stats and I am too lazy to implement it in a better way for now. 
-The songs partition is also mounted as RW during boot but when the system has booted getty will autologin into user itg which has a script in .bash_profile that 
-detects if bash was started on the tty and when it is it will run startx, startx will run the itg.sh script that will disable display power management, blanking 
-and other stuff (this is done because in testing I figured out that even runing Xorg WMless the display will still try to go in some kind of power saving mode after 
-an inactivity timeout has been reached), and finally remount the songs partition in RO to then start stepmania.
+The songs partition is also mounted as RW during boot but when the system has booted getty will autologin into user itg which has a script in .bash_profile that detects if bash was started on the tty and when it is it will run startx, startx will run the itg.sh script that will disable display power management, blanking and other stuff (this is done because in testing I figured out that even runing Xorg WMless the display will still try to go in some kind of power saving mode after an inactivity timeout has been reached), and finally remount the songs partition in RO to then start stepmania.
  
-To add new songs you want to press scroll lock, change  the theme to the service edition version of it, 
-exit stepmania and scp or sftp files (or using ./filemanager.sh) to /mnt/Songs/Songs, reboot the machine to restart the game and switch back the theme to prevent
-people from accidentally getting out of the game.
+To add new songs you want to press scroll lock, change  the theme to the service edition version of it, exit stepmania and scp or sftp files (or using ./filemanager.sh) to /mnt/Songs/Songs, reboot the machine to restart the game and switch back the theme to preventpeople from accidentally getting out of the game.

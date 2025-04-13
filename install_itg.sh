@@ -1,8 +1,8 @@
 #!/bin/sh
 USER_HOME="/home/$SUDO_USER"
 
-cd /temp
-sudo apt-get install xorg xinit ssh links git vim alsa-utils psmisc thunar python3-watchdog -y
+cd /tmp
+sudo apt-get install xorg xinit ssh links git vim alsa-utils psmisc thunar python3-watchdog arandr -y
 sudo systemctl enable ssh
 sudo sed -i.bak 's/^%sudo.*/%sudo ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers
 wget https://github.com/stepmania/stepmania/releases/download/v5.0.12/StepMania-5.0.12-Linux.tar.gz #known good version, this isn't super great but it ensures theme compatibility
@@ -10,24 +10,16 @@ tar xf Step*
 mv Step*/stepmani* $USER_HOME/stepmania
 git clone --branch arcade https://github.com/paranoidnela/In-The-Groove2-SM5 $USER_HOME/stepmania/Themes/itg2-arcade
 git clone --branch service https://github.com/paranoidnela/In-The-Groove2-SM5 $USER_HOME/stepmania/Themes/itg2-service
-sudo lvcreate -l 100%FREE -n songs-lv --wipesignatures y --yes --zero y itg-vg
-sudo mkfs.ext4 /dev/itg-vg/songs-lv
-sudo mkdir /mnt/Songs
-sudo mount /dev/itg-vg/songs-lv /mnt/Songs/
-sudo chown -R itg:itg /mnt/Songs/
-mv $USER_HOME/stepmania/Songs /mnt/Songs/Songs
-mv $USER_HOME/stepmania/BGAnimations /mnt/Songs/BGAnimations
-sudo ln -s /mnt/Songs/Songs $USER_HOME/stepmania/Songs
-sudo ln -s /mnt/Songs/BGAnimations $USER_HOME/stepmania/Songs
-echo "/dev/itg-vg/songs-lv /mnt/Songs ext4 defaults 0 2" >> /etc/fstab
 cp $USER_HOME/ITG2-SM5_disk-image/system_files/home/itg/itg.sh $USER_HOME/itg.sh
 cp $USER_HOME/ITG2-SM5_disk-image/system_files/home/itg/audio.sh $USER_HOME/audio.sh
 cp $USER_HOME/ITG2-SM5_disk-image/system_files/home/itg/video.sh $USER_HOME/video.sh
 cp $USER_HOME/ITG2-SM5_disk-image/system_files/home/itg/filemanager.sh $USER_HOME/filemanager.sh
+cp $USER_HOME/ITG2-SM5_disk-image/system_files/home/itg/videosetup.sh $USER_HOME/videosetup.sh
 cp $USER_HOME/ITG2-SM5_disk-image/system_files/home/itg/configureusb.py $USER_HOME/configureusb.py
 cp -r $USER_HOME/ITG2-SM5_disk-image/system_files/home/itg/.stepmania-5.0/ $USER_HOME/.stepmania-5.0/
 cp $USER_HOME/ITG2-SM5_disk-image/system_files/home/itg/.xinitrc $USER_HOME/.xinitrc
 cp $USER_HOME/ITG2-SM5_disk-image/system_files/home/itg/.xinitrc_filemanager $USER_HOME/.xinitrc_filemanager
+cp $USER_HOME/ITG2-SM5_disk-image/system_files/home/itg/.xinitrc_video $USER_HOME/.xinitrc_video
 cp $USER_HOME/ITG2-SM5_disk-image/system_files/home/itg/.bash_profile $USER_HOME/.bash_profile
 chmod +x $USER_HOME/.bash_profile
 chmod +x $USER_HOME/*.sh
