@@ -1,6 +1,5 @@
 # TODO
 - Enable more protocols to add songs
-- Enable USB Profile support (usb devices will already automount in a `/mnt/usb` subdirectory)
 - Ship ready to use disk images
 - Create internal build enviroment for binary releases
 - Add UEFI instructions
