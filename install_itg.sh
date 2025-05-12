@@ -8,8 +8,11 @@ sudo sed -i.bak 's/^%sudo.*/%sudo ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers
 wget https://github.com/stepmania/stepmania/releases/download/v5.0.12/StepMania-5.0.12-Linux.tar.gz #known good version, this isn't super great but it ensures theme compatibility
 tar xf Step*
 mv Step*/stepmani* $USER_HOME/stepmania
-git clone --branch arcade https://github.com/paranoidnela/In-The-Groove2-SM5 $USER_HOME/stepmania/Themes/itg2-arcade
-git clone --branch service https://github.com/paranoidnela/In-The-Groove2-SM5 $USER_HOME/stepmania/Themes/itg2-service
+mkdir -p $USER_HOME/NoteSkins/dance
+git clone --branch disk-image https://github.com/paranoidnela/In-The-Groove2-SM5 $USER_HOME/stepmania/Themes/itg2
+git clone --branch main https://github.com/paranoidnela/In-The-Groove2-SM5-NoteSkins $USER_HOME/NoteSkins/dance
+mv $USER_HOME/NoteSkins/dance/* $USER_HOME/stepmania/NoteSkins/dance
+rm -rf $USER_HOME/NoteSkins
 cp $USER_HOME/ITG2-SM5_disk-image/system_files/home/itg/itg.sh $USER_HOME/itg.sh
 cp $USER_HOME/ITG2-SM5_disk-image/system_files/home/itg/audio.sh $USER_HOME/audio.sh
 cp $USER_HOME/ITG2-SM5_disk-image/system_files/home/itg/video.sh $USER_HOME/video.sh
