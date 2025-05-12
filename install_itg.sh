@@ -9,8 +9,7 @@ wget https://github.com/stepmania/stepmania/releases/download/v5.0.12/StepMania-
 tar xf Step*
 mv Step*/stepmani* $USER_HOME/stepmania
 mkdir -p $USER_HOME/NoteSkins/dance
-git clone --branch arcade https://github.com/paranoidnela/In-The-Groove2-SM5 $USER_HOME/stepmania/Themes/itg2-arcade
-git clone --branch service https://github.com/paranoidnela/In-The-Groove2-SM5 $USER_HOME/stepmania/Themes/itg2-service
+git clone --branch disk-image https://github.com/paranoidnela/In-The-Groove2-SM5 $USER_HOME/stepmania/Themes/itg2
 git clone --branch main https://github.com/paranoidnela/In-The-Groove2-SM5-NoteSkins $USER_HOME/NoteSkins/dance
 mv $USER_HOME/NoteSkins/dance/* $USER_HOME/stepmania/NoteSkins/dance
 rm -rf $USER_HOME/NoteSkins
